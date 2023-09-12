@@ -8,7 +8,7 @@ const router = express.Router();
 
 // Route to handle user login
 router.post(
-  '/login',
+  '/',
   [
     check('email', 'Please enter a valid email').isEmail(),
     check('password', 'Password is required').notEmpty(),

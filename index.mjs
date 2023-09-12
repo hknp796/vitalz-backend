@@ -2,6 +2,7 @@
 import express from 'express';
 import json  from 'body-parser';
 import  authRoute  from './routes/login.mjs'; // Import the auth route
+import  register  from './routes/register.mjs'; // Import the auth route
 import connectDB from './config/db.mjs';
 
 import dotenv from 'dotenv';
@@ -13,11 +14,12 @@ app.use(json());
 
 connectDB();
 // Routes
-app.use('/login', authRoute); // Use the auth route for login
+app.use('/login', authRoute); 
+app.use('/register', register); 
 
 // ... other routes and middleware ...
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(3000, () => {
   console.log(`Server is running on port ${PORT}`);
 });
