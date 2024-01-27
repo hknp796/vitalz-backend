@@ -9,9 +9,19 @@ export const addMember = async (req, res) => {
         res.status(200).json({ success: true, message: 'Member added successfully' });
 
     } catch (error) {
-        res.status(500).send('Server Error');
+        res.status(500).send(error);
+    }
+}
+
+export const allMembers = async (req, res) => {
+    try {
+        const a = await Members.find();
+        console.log({ a });
+        res.status(200).json({ success: true, message: 'Member added successfully', data: a });
+
+    } catch (error) {
+        res.status(500).send(error);
     }
 
-
-
 }
+

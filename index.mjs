@@ -4,6 +4,7 @@ import json  from 'body-parser';
 import  authRoute  from './routes/login.mjs'; // Import the auth route
 import  register  from './routes/register.mjs'; // Import the auth route
 import addMember  from './routes/addMembers.mjs';
+import allMembers  from './routes/addMembers.mjs';
 import connectDB from './config/db.mjs';
 
 import dotenv from 'dotenv';
@@ -19,6 +20,7 @@ connectDB();
 app.use('/login', authRoute); 
 app.use('/register', register); 
 app.use('/add-member', addMember); 
+app.use('/get-members', allMembers); 
 
 // ... other routes and middleware ...
 
