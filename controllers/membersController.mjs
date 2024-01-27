@@ -35,3 +35,15 @@ export const deleteOneMember = async (req, res) => {
 
 }
 
+export const updateMember = async (req, res) => {
+    const documentId = req.params.id
+    try {
+       await Members.updateOne({ _id: documentId}, req.body)
+        res.status(200).json({ success: true, message: 'Member Updated successfully'});
+
+    } catch (error) {
+        res.status(500).send(error);
+    }
+
+}
+

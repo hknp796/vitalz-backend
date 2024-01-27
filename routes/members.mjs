@@ -1,7 +1,7 @@
 // routes/auth.mjs
 
 import express from 'express';
-import { addMember, allMembers, deleteOneMember } from '../controllers/membersController.mjs';
+import { addMember, allMembers, deleteOneMember,updateMember } from '../controllers/membersController.mjs';
 
 const router = express.Router();
 router.post(
@@ -11,6 +11,10 @@ router.post(
 router.get(
   '/',
   allMembers
+);
+router.put(
+  '/update/:id',
+  updateMember
 );
 router.post(
   '/delete/:id',
