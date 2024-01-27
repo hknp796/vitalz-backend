@@ -3,8 +3,7 @@ import express from 'express';
 import json  from 'body-parser';
 import  authRoute  from './routes/login.mjs'; // Import the auth route
 import  register  from './routes/register.mjs'; // Import the auth route
-import addMember  from './routes/addMembers.mjs';
-import allMembers  from './routes/addMembers.mjs';
+import member  from './routes/members.mjs';
 import connectDB from './config/db.mjs';
 
 import dotenv from 'dotenv';
@@ -14,13 +13,11 @@ dotenv.config();
 const app = express()
 app.use(json());
 
-
 connectDB();
 // Routes
 app.use('/login', authRoute); 
 app.use('/register', register); 
-app.use('/add-member', addMember); 
-app.use('/get-members', allMembers); 
+app.use('/member',member)
 
 // ... other routes and middleware ...
 
