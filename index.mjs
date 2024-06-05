@@ -1,6 +1,7 @@
 // app.js
 import express from 'express';
 import json  from 'body-parser';
+import cors from 'cors'
 import  authRoute  from './routes/login.mjs'; // Import the auth route
 import  register  from './routes/register.mjs'; // Import the auth route
 import member  from './routes/members.mjs';
@@ -11,7 +12,9 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express()
+
 app.use(json());
+app.use(cors())
 
 connectDB();
 // Routes
