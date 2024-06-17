@@ -20,7 +20,7 @@ connectDB();
 // Routes
 app.use('/login', authRoute); 
 app.use('/register', register); 
-app.use('/member',member)
+app.use('/members',member)
 
 // ... other routes and middleware ...
 
