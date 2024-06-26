@@ -45,6 +45,16 @@ export const allMembers = async (req, res) => {
     }
 };
 
+export const oneMember = async (req, res) => {
+    const documentId = req.params.id;
+    try {
+        const member = await Members.findOne({ _id: documentId });
+        handleResponse(res, 200, member);
+    } catch (error) {
+        handleError(res, error);
+    }
+};
+
 export const deleteOneMember = async (req, res) => {
     const documentId = req.params.id;
     console.log({ documentId });
@@ -58,6 +68,7 @@ export const deleteOneMember = async (req, res) => {
 
 export const updateMember = async (req, res) => {
     const documentId = req.params.id;
+    console.log({documentId});
     try {
         await Members.updateOne({ _id: documentId }, req.body);
         handleResponse(res, 200,{}, "Member Updated successfully");
