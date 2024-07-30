@@ -1,7 +1,7 @@
 // routes/auth.mjs
 
 import express from 'express';
-import { addMember, allMembers, deleteOneMember,updateMember,oneMember } from '../controllers/membersController.mjs';
+import { addMember, allMembers, deleteOneMember,updateMember,oneMember,updatePayment } from '../controllers/membersController.mjs';
 
 const router = express.Router();
 router.post(
@@ -23,6 +23,10 @@ router.put(
 router.post(
   '/delete/:id',
   deleteOneMember
+);
+router.post(
+  '/payment/:id',
+  updatePayment
 );
 // Rest of your code...
 export default router

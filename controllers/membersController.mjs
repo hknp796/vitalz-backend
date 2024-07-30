@@ -1,3 +1,4 @@
+
 import Members from "../models/Members.mjs";
 
 const handleResponse = (res, status, data, message) => {
@@ -68,11 +69,31 @@ export const deleteOneMember = async (req, res) => {
 
 export const updateMember = async (req, res) => {
     const documentId = req.params.id;
-    console.log({documentId});
     try {
         await Members.updateOne({ _id: documentId }, req.body);
         handleResponse(res, 200,{}, "Member Updated successfully");
     } catch (error) {
         handleError(res, error);
     }
+};
+
+export const updatePayment = async (req, res) => {
+    const documentId = req.params.id;
+
+    try {
+        let user = await Members.findById(documentId);     
+        if (!user) {
+            return res.status(404).send('User not found');
+        }
+        
+        Object.keys(req.body).forEach(key => {
+            user[key] = req.body[key];
+        });
+
+        await user.save();
+        handleResponse(res, 200,{}, "Payment Added successfully");
+
+      } catch (error) {
+        handleError(res, error);
+      }
 };
