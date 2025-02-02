@@ -2,7 +2,7 @@
 
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import User from '../models/User.mjs'; // Import the User model
+import User from '../models/Users.mjs'; // Import the User model
 
 export const loginUser = async (req, res) => {
 

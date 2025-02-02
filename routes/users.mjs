@@ -1,27 +1,29 @@
+// routes/users.mjs
 
 import express from 'express';
-import { addPlan, allPlans, deleteOnePlan, updatePlan, onePlan } from '../controllers/plansController.mjs';
+import { addUser, allUsers, deleteOneUser, updateUser, oneUser, } from '../controllers/usersController.mjs';
 
 const router = express.Router();
 router.post(
     '/',
-    addPlan
+    addUser
 );
 router.get(
     '/',
-    allPlans
+    allUsers
 );
 router.get(
     '/:id',
-    onePlan
+    oneUser
 );
 router.put(
     '/update/:id',
-    updatePlan
+    updateUser
 );
 router.post(
     '/delete/:id',
-    deleteOnePlan
+    deleteOneUser
 );
+
 // Rest of your code...
 export default router
