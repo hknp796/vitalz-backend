@@ -6,6 +6,7 @@ import  authRoute  from './routes/login.mjs'; // Import the auth route
 import  register  from './routes/register.mjs'; // Import the auth route
 import member  from './routes/members.mjs';
 import coaches  from './routes/coaches.mjs';
+import inventories  from './routes/inventories.mjs';
 import connectDB from './config/db.mjs';
 
 import dotenv from 'dotenv';
@@ -23,6 +24,7 @@ app.use('/login', authRoute);
 app.use('/register', register); 
 app.use('/members',member)
 app.use('/coaches',coaches)
+app.use('/inventories',inventories)
 
 // ... other routes and middleware ...
 
