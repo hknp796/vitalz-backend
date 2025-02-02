@@ -6,6 +6,8 @@ import  authRoute  from './routes/login.mjs'; // Import the auth route
 import  register  from './routes/register.mjs'; // Import the auth route
 import member  from './routes/members.mjs';
 import coaches  from './routes/coaches.mjs';
+import plans  from './routes/plans.mjs';
+import users  from './routes/users.mjs';
 import inventories  from './routes/inventories.mjs';
 import connectDB from './config/db.mjs';
 
@@ -25,6 +27,8 @@ app.use('/register', register);
 app.use('/members',member)
 app.use('/coaches',coaches)
 app.use('/inventories',inventories)
+app.use('/plans',plans)
+app.use('/users',users)
 
 // ... other routes and middleware ...
 
